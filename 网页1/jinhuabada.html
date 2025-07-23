@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金华八达集团有限公司鹿田分公司 | 系统升级项目</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        accent: '#FF7D00',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            }
+            .timeline-dot::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #165DFF;
+                transform: translateX(-50%);
+                z-index: 10;
+            }
+            .progress-bar {
+                height: 8px;
+                background-color: #E5E6EB;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .progress-value {
+                height: 100%;
+                background-color: #165DFF;
+                border-radius: 4px;
+                transition: width 1s ease-in-out;
+            }
+            .hero-gradient {
+                background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-bold text-xl text-primary">邱泯谕 | 实施工程师</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-gray-600 hover:text-primary transition-colors">首页</a>
+                <a href="index.html#projects" class="text-gray-600 hover:text-primary transition-colors">项目经验</a>
+                <a href="index.html#achievements" class="text-gray-600 hover:text-primary transition-colors">工作成果</a>
+                <a href="index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系方式</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-primary">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 项目头部横幅 -->
+    <section class="relative h-[70vh] min-h-[500px] overflow-hidden">
+        <img src="https://picsum.photos/id/1048/1920/1080" alt="金华八达集团办公大楼外观" class="w-full h-full object-cover object-center">
+        
+        <div class="absolute inset-0 hero-gradient flex items-center">
+            <div class="container mx-auto px-6 md:px-12 max-w-5xl">
+                <div class="max-w-3xl transform transition-transform duration-700 hover:translate-x-2">
+                    <span class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full mb-4 opacity-90">
+                        企业资源管理系统
+                    </span>
+                    <h1 class="text-3xl md:text-5xl lg:text-[clamp(2.5rem,5vw,4rem)] font-bold mb-4 text-white text-shadow-lg leading-tight">
+                        金华八达集团有限公司<br>鹿田分公司系统升级
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-100 mb-6 max-w-2xl">
+                        实施工程师 | 2024.05 – 2024.06 | 40天完成核心系统上线
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#overview" class="inline-flex items-center px-6 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl">
+                            查看项目详情
+                            <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#achievements" class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium rounded-lg transition-all border border-white/30">
+                            项目成果数据
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+    </section>
+    
+    <!-- 项目基本信息 -->
+    <div class="container mx-auto px-4">
+        <div class="p-6 md:p-8 grid md:grid-cols-3 gap-6 bg-white rounded-xl shadow-md -mt-16 relative z-10 transform transition-all duration-500 hover:shadow-lg">
+            <div class="space-y-2 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <h3 class="text-sm text-gray-500 uppercase flex items-center">
+                    <i class="fa fa-calendar-o mr-2 text-primary"></i>项目周期
+                </h3>
+                <p class="font-medium">40天</p>
+            </div>
+            <div class="space-y-2 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <h3 class="text-sm text-gray-500 uppercase flex items-center">
+                    <i class="fa fa-building-o mr-2 text-primary"></i>客户行业
+                </h3>
+                <p class="font-medium">综合企业集团</p>
+            </div>
+            <div class="space-y-2 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <h3 class="text-sm text-gray-500 uppercase flex items-center">
+                    <i class="fa fa-cubes mr-2 text-primary"></i>实施内容
+                </h3>
+                <p class="font-medium">需求访谈、参数配置、用户培训、系统优化</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mx-auto px-4 py-12" id="overview">
+        <!-- 项目概述 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目概述</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    作为浙中地区大型综合企业，金华八达集团每年需处理上万笔采购交易。随着门店迅速扩张，原有本地系统已难以支撑集中议价与跨部门协同，审批流程冗长、库存准确率偏低等问题越来越突出。
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    集团因此决定引入合泰软件，并提出了"40天完成核心流程上线"的紧迫目标。对于刚踏入职场的我而言，这意味着从第一天起就要全力冲刺。
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    在资深工程师的带领下，我负责需求访谈、参数配置和用户培训等实施工作。通过对五个事业部的现场调研，我们梳理出采购与仓储环节的关键痛点，并制定了针对性的解决方案。
+                </p>
+            </div>
+        </section>
+
+        <!-- 项目挑战与解决方案 -->
+        <section class="mb-12 grid md:grid-cols-2 gap-6">
+            <!-- 项目挑战 -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 transform transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">
+                    <i class="fa fa-exclamation-triangle mr-2 text-accent"></i>项目挑战
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">价格体系不统一</h3>
+                            <p class="text-gray-600">同一物资各部门各自议价，无法实现集中采购优势</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">数据口径不一致</h3>
+                            <p class="text-gray-600">采购和财务统计口径脱节，数据无法有效对接</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">系统性能问题</h3>
+                            <p class="text-gray-600">服务器资源紧张，旧系统时常卡顿影响业务开展</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">实施周期紧迫</h3>
+                            <p class="text-gray-600">要求40天内完成核心流程上线，时间压力大</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 解决方案 -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 transform transition-all duration-300 hover:shadow-lg">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">
+                    <i class="fa fa-lightbulb-o mr-2 text-secondary"></i>解决方案
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">基础档案统一</h3>
+                            <p class="text-gray-600">整理并导入1,200条存货和230家供应商信息，统一数据标准</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">系统性能优化</h3>
+                            <p class="text-gray-600">暂停旧系统非关键进程并扩容服务器，提升系统响应速度</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">情景式用户培训</h3>
+                            <p class="text-gray-600">针对采购、仓管等五类角色定制操作指南，提升学习效率</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">分阶段实施策略</h3>
+                            <p class="text-gray-600">优先上线核心功能，确保40天内完成关键流程部署</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目实施过程 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目实施过程</h2>
+                
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
+                    
+                    <!-- 阶段1 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                <h3 class="text-xl font-bold text-primary mb-2">需求调研与规划</h3>
+                                <p class="text-gray-500 mb-2">2024.05.01 - 2024.05.07</p>
+                                <p class="text-gray-700">
+                                    对五个事业部进行现场调研，梳理采购与仓储环节的核心痛点，明确系统实施范围和优先级，制定40天详细实施计划。
+                                </p>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-search text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">需求调研与规划</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2024.05.01 - 2024.05.07</div>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>完成五个事业部现场调研</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>梳理出三大核心痛点问题</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>制定40天详细实施计划与里程碑</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段2 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-1">
+                                <ul class="text-gray-700 space-y-2 md:justify-end">
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">整理并导入1,200条存货信息</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">录入230家供应商详细资料</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">建立统一的数据标准与编码规则</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-database"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 order-0 md:order-2">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-database text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">基础数据整理与导入</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2024.05.08 - 2024.05.15</div>
+                                <h3 class="hidden md:block text-xl font-bold text-primary mb-2">基础数据整理与导入</h3>
+                                <p class="hidden md:block text-gray-500 mb-2">2024.05.08 - 2024.05.15</p>
+                                <p class="hidden md:block text-gray-700">
+                                    集中精力整理基础数据，确保存货和供应商信息的准确性与完整性，为系统配置奠定数据基础，建立统一的数据标准。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段3 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                <h3 class="text-xl font-bold text-primary mb-2">系统配置与性能优化</h3>
+                                <p class="text-gray-500 mb-2">2024.05.16 - 2024.05.25</p>
+                                <p class="text-gray-700">
+                                    进行系统参数配置，配合IT团队对服务器进行扩容和性能优化，将CPU峰值占用率从90%降至55%，显著提升系统响应速度。
+                                </p>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-cogs"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-cogs text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">系统配置与性能优化</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2024.05.16 - 2024.05.25</div>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>完成系统核心参数配置</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>服务器资源扩容与性能调优</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>系统功能测试与问题修复</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段4 -->
+                    <div class="relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-1">
+                                <ul class="text-gray-700 space-y-2 md:justify-end">
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">为五类角色定制操作指南</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">完成40名用户培训，平均掌握时间30分钟</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">系统正式上线并提供7x12小时支持</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">项目验收通过，准备下一阶段实施</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 order-0 md:order-2">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-rocket text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">用户培训与系统上线</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2024.05.26 - 2024.06.10</div>
+                                <h3 class="hidden md:block text-xl font-bold text-primary mb-2">用户培训与系统上线</h3>
+                                <p class="hidden md:block text-gray-500 mb-2">2024.05.26 - 2024.06.10</p>
+                                <p class="hidden md:block text-gray-700">
+                                    开展针对性用户培训，确保各部门人员快速掌握系统操作，系统顺利上线并稳定运行，圆满完成40天实施目标，为下一阶段扩展奠定基础。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目图片展示 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目场景展示</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="overflow-hidden rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                        <img src="https://picsum.photos/id/26/800/500" alt="工程师现场培训用户操作系统" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        <p class="text-center text-gray-600 mt-2">工程师现场指导用户操作，提供亲和专业的培训服务</p>
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md hover:-translate-y-1">
+                        <img src="https://picsum.photos/id/0/800/500" alt="系统运行监控界面" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        <p class="text-center text-gray-600 mt-2">系统运行监控界面，显示性能优化后系统稳定运行状态</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目成果与数据 -->
+        <section class="mb-12" id="achievements">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目成果与数据</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">流程效率提升</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">采购审批效率提升</span>
+                                    <span class="text-primary font-bold">+83%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 83%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">审批周期从2天缩短至4小时</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">采购成本降低</span>
+                                    <span class="text-primary font-bold">+15%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 15%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">关键物资采购均价下降约15%</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">库存准确率提升</span>
+                                    <span class="text-primary font-bold">+15%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 15%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">由78%提升至93%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">系统性能改善</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">系统响应速度提升</span>
+                                    <span class="text-primary font-bold">+64%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 64%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">操作响应时间显著缩短</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">CPU使用率优化</span>
+                                    <span class="text-primary font-bold">-39%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 55%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">从90%峰值降至55%</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">系统稳定性</span>
+                                    <span class="text-primary font-bold">720+小时</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 100%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">连续稳定运行无故障</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">项目成果分析</h3>
+                    <div class="h-64">
+                        <canvas id="achievementChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 客户评价 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">客户评价</h2>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-gray-700 italic mb-4 text-lg">
+                            "流程更清晰、数据更可靠！这套系统为我们集团的数字化转型开了个好头，期待下一阶段的深入合作。"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                <i class="fa fa-user text-gray-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">金华八达集团有限公司 财务总监</p>
+                                <p class="text-gray-500 text-sm">综合企业集团财务管理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人收获与反思 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">个人收获与反思</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fa fa-star text-accent mr-2"></i>项目收获
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">掌握了快速实施大型企业系统的方法与技巧</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">提升了需求分析和用户沟通能力，学会快速理解业务痛点</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">积累了数据整理和系统性能优化的实践经验</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">提高了在时间紧迫情况下的工作效率和抗压能力</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fa fa-lightbulb-o text-secondary mr-2"></i>经验反思
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">基础数据质量是系统成功的关键，前期应投入足够精力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">针对不同角色的定制化培训能显著提高用户接受度</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">系统性能优化应尽早进行，避免影响用户体验和数据处理</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">明确的阶段性目标和里程碑对紧迫项目尤为重要</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 项目导航 -->
+    <div class="project-navigation mt-12 mb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="huangpujunlan.html" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <i class="fa fa-arrow-left mr-2"></i>上一个项目
+                </a>
+                <a href="index.html" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <i class="fa fa-home mr-2"></i>返回主页
+                </a>
+                <a href="#" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors opacity-50 cursor-not-allowed">
+                    下一个项目<i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">邱泯谕 | 实施工程师</h3>
+                    <p class="text-gray-400">专业、高效、负责的项目实施服务</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-phone text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa fa-weixin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>© 2025 邱泯谕 - 实施工程师个人网站. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 页面滚动时导航栏效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-md', 'bg-white/95', 'backdrop-blur-sm');
+                nav.classList.remove('shadow-sm', 'bg-white');
+            } else {
+                nav.classList.remove('shadow-md', 'bg-white/95', 'backdrop-blur-sm');
+                nav.classList.add('shadow-sm', 'bg-white');
+            }
+        });
+
+        // 页面加载完成后初始化图表
+        document.addEventListener('DOMContentLoaded', function() {
+            // 项目成果图表
+            const ctx = document.getElementById('achievementChart').getContext('2d');
+            const achievementChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['采购审批时间(小时)', '采购成本(相对值)', '库存准确率(%)', '系统响应速度(秒)'],
+                    datasets: [
+                        {
+                            label: '实施前',
+                            data: [48, 100, 78, 3.2],
+                            backgroundColor: 'rgba(22, 93, 255, 0.3)',
+                            borderColor: 'rgba(22, 93, 255, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: '实施后',
+                            data: [4, 85, 93, 1.15],
+                            backgroundColor: 'rgba(22, 93, 255, 0.8)',
+                            borderColor: 'rgba(22, 93, 255, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: '项目实施前后关键指标对比'
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // 进度条动画效果
+            const progressBars = document.querySelectorAll('.progress-value');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

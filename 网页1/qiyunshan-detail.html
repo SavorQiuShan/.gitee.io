@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>齐云山祥源文旅集团 - 项目详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2129',
+                        light: '#F2F3F5',
+                        accent: '#FF7D00'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .progress-bar {
+                height: 8px;
+                background-color: #e2e8f0;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .progress-value {
+                height: 100%;
+                background-color: theme('colors.primary');
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏 -->
+    <header class="fixed top-0 left-0 right-0 bg-white/90 bg-blur shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-primary">邱泯谕 | 实施工程师</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+                <a href="index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育经历</a>
+                <a href="index.html#experience" class="text-gray-600 hover:text-primary transition-colors">项目经验</a>
+                <a href="index.html#achievements" class="text-gray-600 hover:text-primary transition-colors">工作成果</a>
+            </nav>
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于我</a>
+                <a href="index.html#education" class="text-gray-600 hover:text-primary py-2 transition-colors">教育经历</a>
+                <a href="index.html#experience" class="text-gray-600 hover:text-primary py-2 transition-colors">项目经验</a>
+                <a href="index.html#achievements" class="text-gray-600 hover:text-primary py-2 transition-colors">工作成果</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container mx-auto px-4 pt-24 pb-16">
+        <!-- 项目标题与基本信息 -->
+        <section class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <a href="index.html#experience" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    <i class="fa fa-arrow-left mr-2"></i> 返回项目列表
+                </a>
+                <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium">
+                    文旅集团数字化
+                </span>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="relative h-64 md:h-80">
+                    <img src="https://picsum.photos/id/1036/1200/600" alt="齐云山祥源文旅集团景区与酒店" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                        <div class="p-6 md:p-8 text-white">
+                            <h1 class="text-2xl md:text-4xl font-bold mb-2 text-shadow">齐云山祥源文旅集团</h1>
+                            <p class="text-lg opacity-90">实施工程师 | 2025.04 – 2025.05</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-6 md:p-8 grid md:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <h3 class="text-sm text-gray-500 uppercase">项目周期</h3>
+                        <p class="font-medium">1.5个月</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm text-gray-500 uppercase">客户行业</h3>
+                        <p class="font-medium">生态旅游 / 酒店运营 / 文旅综合体</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm text-gray-500 uppercase">实施模块</h3>
+                        <p class="font-medium">采购管理、仓储管理、资产管理、餐饮管理、财务管理、OA集成</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目概述 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目概述</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    齐云山祥源文旅集团是当地国资委下属的生态旅游与酒店运营平台，管理着遍布各景区的酒店、餐厅、养生中心和配套设施。面对多业态、跨组织、多账套并行的管理困境，集团决心引入合泰系统，通过数字化手段整合采购、仓储、资产、餐饮、财务等核心业务，打造"景区一体化后台"。
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    项目于2025年4月启动，原定五一长假前全面上线，但计划被临时提前至4月25日，时间极其紧张。作为实施工程师，我全程驻场，面对系统使用率低、基础数据混乱、流程不清的现状，与客户紧密合作，从基础档案重建到流程优化，从系统配置到定制开发，逐一攻克各种难题，最终按时完成上线并实现了预期目标。
+                </p>
+            </div>
+        </section>
+
+        <!-- 项目挑战与解决方案 -->
+        <section class="mb-12 grid md:grid-cols-2 gap-6">
+            <!-- 项目挑战 -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">
+                    <i class="fa fa-exclamation-triangle mr-2 text-accent"></i>项目挑战
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">时间极其紧迫</h3>
+                            <p class="text-gray-600">项目周期仅1.5个月，且上线时间被临时提前5天，压力巨大</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">多账套管理复杂</h3>
+                            <p class="text-gray-600">4个账套并行，权限和流程各不相同，管理逻辑混乱</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">基础数据混乱</h3>
+                            <p class="text-gray-600">食材档案版本频繁更改，资产卡片格式不规范，数据质量差</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">系统集成困难</h3>
+                            <p class="text-gray-600">与泛微V5E9 OA系统缺乏标准接口，对接难度大</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-red-600 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">流程不规范</h3>
+                            <p class="text-gray-600">厨房请购等流程存在审批漏洞，采购部门参与度低，价格混乱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 解决方案 -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">
+                    <i class="fa fa-lightbulb-o mr-2 text-secondary"></i>解决方案
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">驻场集中攻坚</h3>
+                            <p class="text-gray-600">全天现场支持，微信群实时答疑，快速响应客户需求，确保进度</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">数据重建与规范</h3>
+                            <p class="text-gray-600">逐字段核对基础档案，拆分整合资产卡片，建立标准化数据体系</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">流程重构与优化</h3>
+                            <p class="text-gray-600">重新设计厨房请购流程，明确"谁请购谁审批，采购负责定价"原则</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">定制接口开发</h3>
+                            <p class="text-gray-600">协调泛微和合泰研发团队，开发定制接口，实现OA审批双向同步</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold">5</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">账套策略调整</h3>
+                            <p class="text-gray-600">优化合并流程模板，通过系统配置实现跨账套物资共享与数据隔离</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目实施过程 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目实施过程</h2>
+                
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
+                    
+                    <!-- 阶段1 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                <h3 class="text-xl font-bold text-primary mb-2">项目启动与需求分析</h3>
+                                <p class="text-gray-500 mb-2">2025.04.01 - 2025.04.05</p>
+                                <p class="text-gray-700">
+                                    项目启动即面临上线时间提前的挑战。快速进驻现场，与集团各部门负责人深入沟通，全面评估现有系统问题和业务需求，制定应急实施计划，明确各阶段交付物和责任人。
+                                </p>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-flag"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-flag text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">项目启动与需求分析</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2025.04.01 - 2025.04.05</div>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>完成集团组织架构和业务流程调研</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>评估多账套管理现状和数据质量</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>制定压缩后的项目计划和资源调配方案</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段2 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-1">
+                                <ul class="text-gray-700 space-y-2 md:justify-end">
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">清理并标准化基础数据，包括食材档案、资产卡片等</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">拆分整合复杂资产卡片，建立统一的数据导入规范</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">配置系统基础参数和4个账套的独立权限体系</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-database"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 order-0 md:order-2">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-database text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">数据整理与系统配置</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2025.04.06 - 2025.04.12</div>
+                                <h3 class="hidden md:block text-xl font-bold text-primary mb-2">数据整理与系统配置</h3>
+                                <p class="hidden md:block text-gray-500 mb-2">2025.04.06 - 2025.04.12</p>
+                                <p class="hidden md:block text-gray-700">
+                                    面对混乱的基础数据，决定推倒重来。逐字段核对基础档案，拆分整合资产卡片，建立标准化数据体系。同步进行系统基础配置，搭建4个账套的独立权限体系，为后续流程设计奠定基础。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段3 -->
+                    <div class="mb-12 md:mb-20 relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                <h3 class="text-xl font-bold text-primary mb-2">流程设计与系统开发</h3>
+                                <p class="text-gray-500 mb-2">2025.04.13 - 2025.04.20</p>
+                                <p class="text-gray-700">
+                                    组织专场会议重新梳理核心业务流程，重点优化厨房请购流程，明确审批权责。同步推进与泛微OA系统的接口开发，协调两边研发团队解决技术难题，确保审批流程无缝对接。
+                                </p>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-code-fork"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-code-fork text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">流程设计与系统开发</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2025.04.13 - 2025.04.20</div>
+                                <ul class="text-gray-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>重新设计厨房请购流程，规范审批节点和采购职责</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>开发泛微OA系统定制接口，实现审批双向同步</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                                        <span>配置跨账套物资共享方案，解决工程仓共享问题</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 阶段4 -->
+                    <div class="relative">
+                        <div class="md:flex md:items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0 order-1 md:order-1">
+                                <ul class="text-gray-700 space-y-2 md:justify-end">
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">开展多轮用户培训，覆盖各部门关键用户</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">编写简易操作指南，确保用户独立使用系统</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                    <li class="flex items-start md:justify-end">
+                                        <span class="md:order-2">系统按时上线，提供现场支持直至稳定运行</span>
+                                        <i class="fa fa-check-circle text-secondary mt-1 ml-0 md:ml-2 md:mr-2 md:order-1"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white items-center justify-center z-10">
+                                <i class="fa fa-rocket"></i>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 order-0 md:order-2">
+                                <div class="md:hidden flex items-center mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center mr-2">
+                                        <i class="fa fa-rocket text-xs"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-primary">系统上线与运维支持</h3>
+                                </div>
+                                <div class="md:hidden text-gray-500 mb-2">2025.04.21 - 2025.05.31</div>
+                                <h3 class="hidden md:block text-xl font-bold text-primary mb-2">系统上线与运维支持</h3>
+                                <p class="hidden md:block text-gray-500 mb-2">2025.04.21 - 2025.05.31</p>
+                                <p class="hidden md:block text-gray-700">
+                                    系统按提前后的计划于4月25日顺利上线。上线后继续驻场支持一个多月，解决使用过程中的各种问题，编写详细操作指南，确保用户能够独立高效使用系统。直至5月底系统稳定运行后才撤离现场。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目成果与数据 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目成果与数据</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">关键绩效指标提升</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">流程规范化程度</span>
+                                    <span class="text-primary font-bold">+95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 95%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">建立了标准化的采购、仓储、资产流程体系</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">数据准确性</span>
+                                    <span class="text-primary font-bold">+85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 85%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">基础数据质量显著提升，支持精准决策</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">审批效率</span>
+                                    <span class="text-primary font-bold">+70%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 70%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">OA与业务系统打通，审批时间大幅缩短</p>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-medium">跨部门协作效率</span>
+                                    <span class="text-primary font-bold">+80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value" style="width: 80%"></div>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-1">多账套协同工作流程顺畅，沟通成本降低</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">项目成果分析</h3>
+                        <div class="h-64">
+                            <canvas id="achievementChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">项目亮点</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa fa-sitemap text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">多账套协同管理</h4>
+                            <p class="text-gray-600 text-sm">
+                                成功实现4个账套的独立管理与协同工作，通过权限控制和流程配置，既保证数据隔离又支持资源共享。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa fa-plug text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">OA系统深度集成</h4>
+                            <p class="text-gray-600 text-sm">
+                                突破泛微V5E9系统接口限制，实现业务系统与OA审批的双向同步，打通全集团办公链路。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3">
+                                <i class="fa fa-tachometer text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold mb-2">紧急项目管理</h4>
+                            <p class="text-gray-600 text-sm">
+                                在项目周期缩短的情况下，通过科学规划和高效执行，确保系统按时上线并达到预期效果。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目照片展示 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">项目现场照片</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                        <img src="https://picsum.photos/id/42/800/500" alt="与集团各部门负责人在会议室讨论流程方案" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-gray-50">
+                            <p class="text-gray-700 font-medium">与集团各部门负责人讨论流程方案</p>
+                            <p class="text-gray-500 text-sm mt-1">通过团队协作解决复杂流程设计问题</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                        <img src="https://picsum.photos/id/160/800/500" alt="手机上OA审批的界面截图" class="w-full h-64 object-cover">
+                        <div class="p-4 bg-gray-50">
+                            <p class="text-gray-700 font-medium">OA审批移动端界面展示</p>
+                            <p class="text-gray-500 text-sm mt-1">系统与移动办公融合后的高效审批场景</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 客户反馈 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">客户反馈</h2>
+                
+                <div class="bg-primary/5 rounded-xl p-6 border-l-4 border-primary">
+                    <div class="flex items-start">
+                        <i class="fa fa-quote-left text-primary/30 text-4xl mr-4 mt-2"></i>
+                        <div>
+                            <p class="text-gray-700 italic mb-4">
+                                "面对我们这个时间紧、结构复杂的项目，小邱展现了极强的专业能力和抗压能力。从数据整理到流程设计，从系统配置到接口开发，他全程主导并高效推进。最让我们感动的是他的责任心——即使在系统上线后，仍然驻场支持一个多月，直到我们能熟练使用才离开。"
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fa fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">张总监</p>
+                                    <p class="text-gray-500 text-sm">齐云山祥源文旅集团 信息部总监</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-primary/5 rounded-xl p-6 border-l-4 border-primary">
+                    <div class="flex items-start">
+                        <i class="fa fa-quote-left text-primary/30 text-4xl mr-4 mt-2"></i>
+                        <div>
+                            <p class="text-gray-700 italic mb-4">
+                                "作为使用部门，我们最初对新系统是有顾虑的，尤其是在这么短的时间内上线。但小邱用他的耐心和专业打消了我们的疑虑。他设计的厨房请购流程既规范又实用，编写的操作指南简单易懂，连我们部门年纪大的同事都能很快上手。现在系统运行稳定，工作效率提高了不少。"
+                            </p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                                    <i class="fa fa-user text-gray-400"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold">刘经理</p>
+                                    <p class="text-gray-500 text-sm">齐云山祥源文旅集团 餐饮部经理</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人收获与反思 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6 text-primary border-b pb-2">个人收获与反思</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fa fa-star text-accent mr-2"></i>项目收获
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">提升了复杂多账套环境下的系统实施与配置能力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">增强了跨系统集成经验，特别是OA系统与业务系统的对接能力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">提高了在时间紧迫情况下的项目管理和优先级排序能力</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">深化了对文旅行业多业态管理的理解，积累了行业最佳实践</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fa fa-lightbulb-o text-secondary mr-2"></i>经验反思
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">面对紧急项目，前期规划和风险评估尤为重要，需预留缓冲时间</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">基础数据质量是系统成功的关键，应尽早介入并严格把控</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">跨部门沟通需要更多耐心和技巧，尤其是在流程变革时</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span class="text-gray-700">系统上线只是开始，持续的用户支持是确保系统真正发挥价值的关键</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 项目导航 -->
+    <div class="project-navigation mt-12 mb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="jiuhuashan-detail.html" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <i class="fa fa-arrow-left mr-2"></i>上一个项目
+                </a>
+                <a href="index.html" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    <i class="fa fa-home mr-2"></i>返回主页
+                </a>
+                <a href="linan-chengtou-detail.html" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                    下一个项目<i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">邱泯谕 | 实施工程师</h3>
+                    <p class="text-gray-400">专业、高效、负责的项目实施服务</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-github text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2025 邱泯谕职业经历展示. 保留所有权利.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单（如果打开）
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+            
+            // 导航栏滚动效果
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('py-2', 'shadow');
+                header.classList.remove('py-3');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2', 'shadow');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 项目成果图表
+        const achievementCtx = document.getElementById('achievementChart').getContext('2d');
+        new Chart(achievementCtx, {
+            type: 'radar',
+            data: {
+                labels: ['流程规范', '数据质量', '审批效率', '系统集成', '用户体验', '跨部门协作'],
+                datasets: [{
+                    label: '实施前',
+                    data: [25, 20, 30, 15, 40, 25],
+                    backgroundColor: 'rgba(203, 213, 225, 0.2)',
+                    borderColor: 'rgba(148, 163, 184, 1)',
+                    pointBackgroundColor: 'rgba(148, 163, 184, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(148, 163, 184, 1)'
+                }, {
+                    label: '实施后',
+                    data: [95, 85, 90, 88, 82, 90],
+                    backgroundColor: 'rgba(22, 93, 255, 0.2)',
+                    borderColor: 'rgba(22, 93, 255, 1)',
+                    pointBackgroundColor: 'rgba(22, 93, 255, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(22, 93, 255, 1)'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }
+            }
+        });
+
+        // 滚动动画
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('section > div');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('opacity-100', 'translate-y-0');
+                    element.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        };
+        
+        // 初始设置
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        });
+        
+        // 页面加载时执行一次
+        window.addEventListener('load', () => {
+            // 延迟执行以确保元素已加载
+            setTimeout(animateOnScroll, 300);
+        });
+        // 滚动时执行
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
+    
